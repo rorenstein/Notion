@@ -11,6 +11,8 @@
   font-family: 'Lato', sans-serif;
   font-size: .7em;
   letter-spacing: 5px;
+  border-collapse: collapse;
+  width: 100%;
   text-align: center;
 }
 
@@ -19,7 +21,7 @@ background-color: #eeeeee;
   display: inline-block;
 text-align: center;
 font-size: 12px;
-  width: 85px;
+  width: 93px;
   padding: 2px;
   border-radius: 7px;
 }
@@ -37,9 +39,27 @@ font-size: 12px;
 
 <div id="tab">
 <div class="day">
-<div id="dy" class="num"></div>Mon
+<div id="mo" class="num"></div>Mon
 </div>
+<div class="day">
+<div id="tu" class="num"></div>Tue
 </div>
+<div class="day">
+<div id="w" class="num"></div>Wed
+</div>
+<div class="day">
+<div id="th" class="num"></div>Thu
+</div>
+<div class="day">
+<div id="f" class="num"></div>Fri
+</div>
+<div class="day">
+<div id="sa" class="num"></div>Sat
+</div>
+<div class="day">
+<div id="su" class="num"></div>Sun
+</div>
+  </div>
   
   
 <script>
@@ -48,6 +68,7 @@ var day = d.getDay();
 var date = d.getDate();
 var month = d.getMonth()+1;
 var year = d.getFullYear();
+var ii = 0;
 var range = []
 
 var end = 0;
@@ -55,6 +76,7 @@ switch(month) {
 case 1:
 end = 31;
 break;
+
 case 2:
 if (year%4==0) {
 end = 29;
@@ -63,33 +85,43 @@ else {
 end = 28;
 }
 break;
+
 case 3:
 end = 31;
 break;
+
 case 4:
 end = 30;
 break;
+
 case 5:
 end = 31;
 break;
+
 case 6:
 end = 30;
 break;
+
 case 7:
 end = 31;
 break;
+
 case 8:
 end = 31;
 break;
+
 case 9:
 end = 30;
 break;
+
 case 10:
 end = 31;
 break;
+
 case 11:
 end = 30;
 break;
+
 case 12:
 end = 31;
 }
@@ -124,8 +156,41 @@ range.push(date-(day-jj));
 }
 }
 
-document.getElementById("dy").innerHTML= range[0];
- 
+while (ii < 8) {
+
+switch(ii) {
+  case 0:
+    //document.getElementById("mon").innerHTML ="Monday"
+    document.getElementById("mo").innerHTML= range[ii];
+    break;
+  case 1:
+    //document.getElementById("tues").innerHTML = "Tuesday"
+    document.getElementById("tu").innerHTML= range[ii];
+    break;
+  case 2:
+    //document.getElementById("wednes").innerHTML ="Wednesday"
+    document.getElementById("w").innerHTML= range[ii];
+    break;
+  case 3:
+    //document.getElementById("thurs").innerHTML = "Thursday"
+    document.getElementById("th").innerHTML= range[ii];
+    break;
+  case 4:
+    //document.getElementById("fri").innerHTML = "Friday"
+    document.getElementById("f").innerHTML= range[ii];
+    break;
+  case 5:
+    //document.getElementById("satur").innerHTML ="Saturday"
+    document.getElementById("sa").innerHTML= range[ii];
+    break;
+    case 6:
+    //document.getElementById("sun").innerHTML = "Sunday"
+    document.getElementById("su").innerHTML= range[ii];
+}
+ii++;
+  }
+
+//document.getElementById("demo3").innerHTML = d.get
 </script>
 
 </body>
