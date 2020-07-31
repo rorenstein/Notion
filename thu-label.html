@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900">
+    <title>Document</title>
+<style>
+#tab {
+ text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  font-size: .7em;
+  letter-spacing: 5px;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.day {
+background-color: #eeeeee; 
+  display: inline-block;
+text-align: center;
+font-size: 12px;
+  width: 85px;
+  padding: 2px;
+  border-radius: 7px;
+}
+
+.num {
+  font-family: 'Montserrat', sans-serif;
+  color:  #183059;
+  font-size: 2em;
+  text-align: center;
+}
+
+</style>
+</head>
+<body>
+
+<div id="tab">
+<div class="day">
+<div id="dy" class="num"></div>Thu
+</div>
+</div>
+  
+  
+<script>
+var d = new Date();
+var day = d.getDay();
+var date = d.getDate();
+var month = d.getMonth()+1;
+var year = d.getFullYear();
+var range = []
+
+var end = 0;
+switch(month) {
+case 1:
+end = 31;
+break;
+case 2:
+if (year%4==0) {
+end = 29;
+}
+else {
+end = 28;
+}
+break;
+case 3:
+end = 31;
+break;
+case 4:
+end = 30;
+break;
+case 5:
+end = 31;
+break;
+case 6:
+end = 30;
+break;
+case 7:
+end = 31;
+break;
+case 8:
+end = 31;
+break;
+case 9:
+end = 30;
+break;
+case 10:
+end = 31;
+break;
+case 11:
+end = 30;
+break;
+case 12:
+end = 31;
+}
+
+for (jj=1;jj<8;jj++) {
+if (date-(day-jj) == end+1) {
+range.push(1);
+var m=1;
+}
+else if (m==1) {
+range.push(2);
+m=2;
+}
+else if (m==2) {
+range.push(3);
+m=3;
+}
+else if (m==3) {
+range.push(4);
+m=4;
+}
+else if (m==4) {
+range.push(5);
+m=5;
+}
+else if (m==5) {
+range.push(6);
+m=6;
+}
+else {
+range.push(date-(day-jj));
+}
+}
+
+document.getElementById("dy").innerHTML= range[3];
+ 
+</script>
+
+</body>
+</html>
